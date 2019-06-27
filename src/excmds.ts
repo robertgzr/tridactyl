@@ -160,6 +160,7 @@ import * as rc from "@src/background/config_rc"
 import * as css_util from "@src/lib/css_util"
 import * as Updates from "@src/lib/updates"
 import * as treestyletab from "@src/interop/tst"
+import * as simpletabgroups from "@src/interop/stg"
 
 ALL_EXCMDS = {
     "": BGSELF,
@@ -2045,6 +2046,70 @@ export async function tstindent(index?: number | "current", followChildren = tru
 //#background
 export async function tstoutdent(index?: number | "current", followChildren = true) {
     return treestyletab.outdent(index, followChildren)
+}
+
+/**
+ * If Simple Tab Groups is installed, goto the first group.
+ */
+//#background
+export async function stgfirst() {
+    return simpletabgroups.loadFirstGroup()
+}
+
+/**
+ * If Simple Tab Groups is installed, goto the last group.
+ */
+//#background
+export async function stglast() {
+    return simpletabgroups.loadLastGroup()
+}
+
+/**
+ * If Simple Tab Groups is installed, goto the next group.
+ */
+//#background
+export async function stgnext() {
+    return simpletabgroups.loadNextGroup()
+}
+
+/**
+ * If Simple Tab Groups is installed, goto the previous group.
+ */
+//#background
+export async function stgprev() {
+    return simpletabgroups.loadPrevGroup()
+}
+
+/**
+ * If Simple Tab Groups is installed, open the manage groups page.
+ */
+//#background
+export async function stgmanage() {
+    return simpletabgroups.openManageGroups()
+}
+
+/**
+ * If Simple Tab Groups is installed, add a new group
+ */
+//#background
+export async function stgnew() {
+    return simpletabgroups.addNewGroup()
+}
+
+/**
+ * If Simple Tab Groups is installed, delete the current group
+ */
+//#background
+export async function stgdeletecurrent() {
+    return simpletabgroups.deleteCurrentGroup()
+}
+
+/**
+ * If Simple Tab Groups is installed, load group with <id>.
+ */
+//#background
+export async function stgload(id: string) {
+    return simpletabgroups.loadGroup(id)
 }
 
 /** Like [[open]], but in a new tab. If no address is given, it will open the newtab page, which can be set with `set newtab [url]`

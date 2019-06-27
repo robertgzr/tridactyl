@@ -15,6 +15,7 @@ export const KNOWN_EXTENSIONS = {
     temp_containers: "{c607c8df-14a7-4f28-894f-29e8722976af}",
     multi_account_containers: "@testpilot-containers",
     tree_style_tab: "treestyletab@piro.sakura.ne.jp",
+    simple_tab_groups: "simple-tab-groups@drive4ik",
 }
 
 type KnownExtensionId = keyof typeof KNOWN_EXTENSIONS
